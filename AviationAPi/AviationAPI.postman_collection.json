@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "ae34752c-084b-44ed-921f-157c7113d1a3",
+		"name": "AviationAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24185636"
+	},
+	"item": [
+		{
+			"name": "GET_Charts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.aviationapi.com/v1/charts?apt=KAVL",
+					"protocol": "https",
+					"host": [
+						"api",
+						"aviationapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"charts"
+					],
+					"query": [
+						{
+							"key": "apt",
+							"value": "KAVL"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_chart_Change",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.aviationapi.com/v1/charts/changes?apt=CLT",
+					"protocol": "https",
+					"host": [
+						"api",
+						"aviationapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"charts",
+						"changes"
+					],
+					"query": [
+						{
+							"key": "apt",
+							"value": "CLT"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_Airport",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.aviationapi.com/v1/airports?apt=DCA",
+					"protocol": "https",
+					"host": [
+						"api",
+						"aviationapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"airports"
+					],
+					"query": [
+						{
+							"key": "apt",
+							"value": "DCA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_Pilots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.aviationapi.com/v1/vatsim/pilots?apt=dca",
+					"protocol": "https",
+					"host": [
+						"api",
+						"aviationapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"vatsim",
+						"pilots"
+					],
+					"query": [
+						{
+							"key": "apt",
+							"value": "dca"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
