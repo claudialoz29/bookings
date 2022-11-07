@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "5277911a-34d4-480d-97f3-32aabf5c3a60",
+		"name": "Workspace",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24185636"
+	},
+	"item": [
+		{
+			"name": "Workspace_Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 for Workspace_Login\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"//javeScrip",
+							"var jsonData = JSON.parse(responseBody);",
+							"console.log(jsonData);",
+							"// save Token in a new enviroment variable",
+							"postman.setEnvironmentVariable(\"token\", jsonData.token);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJvY3RvcGVyZiIsImlkIjoiUkxBQWNJQUItVHRkZ2tTZ2N6VEwiLCJleHAiOjE2Njc4MzI4MTMsImlhdCI6MTY2Nzc0NjQxMywiaGFzaCI6IjVlYjg0MmRhZjMwYjBmOTcwNTI1YjY3ZGMyZGY0MzllIn0.TKTOYuKPuxwQBat3Qxq_pBQKsYKQbS7Yt8hjF4pjXlQ",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://api.octoperf.com/public/users/login?username=claudia.lozada.c@gmail.com&password=jegdE8-qazfeh-kyzsiz",
+					"protocol": "https",
+					"host": [
+						"api",
+						"octoperf",
+						"com"
+					],
+					"path": [
+						"public",
+						"users",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "claudia.lozada.c@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "jegdE8-qazfeh-kyzsiz"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.octoperf.com/workspaces/member-of",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var responseData = pm.response.json();",
+							"console.log(responseData[1].name);",
+							"",
+							"pm.test(\"Verify name equals to <Personal Account> for [member-of] request\", function () {",
+							"    pm.expect(responseData[1].name).equals(\"Personal Account\");",
+							"})",
+							"pm.test(\"Verify name equals to <userId> for [member-of] request\", function () {",
+							"    pm.expect(responseData[1].userId).equals(\"RLAAcIAB-TtdgkSgczTL\");",
+							"})",
+							"pm.test(\"Verify name equals to <description> for [member-of] request\", function () {",
+							"    pm.expect(responseData[1].description).equals(\"user should be able to create new Personal Account\");",
+							"})",
+							"pm.test(\"Verify name equals to <id> for [member-of] request\", function (){",
+							"    pm.expect(responseData[1].id).equals(\"K0YlpIABAKYUYCIqY0Cj\");",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJvY3RvcGVyZiIsImlkIjoiUkxBQWNJQUItVHRkZ2tTZ2N6VEwiLCJleHAiOjE2Njc4MzMyNjUsImlhdCI6MTY2Nzc0Njg2NSwiaGFzaCI6IjVlYjg0MmRhZjMwYjBmOTcwNTI1YjY3ZGMyZGY0MzllIn0.LB9GqxOTRSuDE69fA5PajIC4Bap2OlLoCNIuSXUClc8",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.octoperf.com/workspaces/member-of",
+					"protocol": "https",
+					"host": [
+						"api",
+						"octoperf",
+						"com"
+					],
+					"path": [
+						"workspaces",
+						"member-of"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
